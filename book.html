@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Cut — WRTHY CUTS</title>
+  <meta name="description" content="Book your appointment at WRTHY CUTS in Blaine, MN. Choose your service and time online." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <a href="index.html" class="brand">WRTHY CUTS</a>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="index.html#work" class="nav-link">Work</a>
+      <a href="book.html" class="btn" aria-current="page">Book a Cut <span class="arrow">→</span></a>
+    </nav>
+  </header>
+
+  <!-- ===== BOOKING ===== -->
+  <main class="book-hero">
+    <div class="wrap">
+      <div style="margin-bottom: clamp(2.5rem, 6vw, 4rem)">
+        <span class="eyebrow">Appointments</span>
+        <h1>Book a Cut</h1>
+        <p>Pick your service and a time that works. You'll get a confirmation and a reminder before your appointment.</p>
+      </div>
+
+      <div class="book-layout">
+        <!-- ===== WAITWHILE WIDGET ===== -->
+        <div class="book-widget">
+          <!--
+            ┌─────────────────────────────────────────────────────────────┐
+            │  WAITWHILE INLINE BOOKING — LIVE                              │
+            ├─────────────────────────────────────────────────────────────┤
+            │  Location ID: paradisebarbershop8298                          │
+            │  (the public location slug from the booking URL — safe to     │
+            │  commit; it's the same link used in the Instagram bio).       │
+            │                                                               │
+            │  Per Waitwhile's docs: load their script from the CDN (do NOT │
+            │  self-host it). The calendar renders into <div id="waitwhile">│
+            │  If the service list changes, update it in Waitwhile and it    │
+            │  flows through here automatically.                            │
+            └─────────────────────────────────────────────────────────────┘
+          -->
+
+          <!-- The calendar renders into this div -->
+          <div id="waitwhile"></div>
+
+          <!-- Waitwhile embed script (official CDN) -->
+          <script src="https://cdn.jsdelivr.net/npm/@waitwhile/waitwhile-embed/dist/waitwhile-embed.min.js"></script>
+          <script>
+            // Live booking calendar. Location slug from the public booking URL.
+            (function () {
+              var LOCATION_ID = 'paradisebarbershop8298';
+
+              function mount() {
+                if (window.Waitwhile && window.Waitwhile.Embed) {
+                  var ww = Waitwhile.Embed({ locationId: LOCATION_ID });
+                  ww.render('#waitwhile');
+                  var ph = document.getElementById('ww-placeholder');
+                  if (ph) ph.style.display = 'none';
+                } else {
+                  // script not ready yet — try again shortly
+                  setTimeout(mount, 150);
+                }
+              }
+              mount();
+            })();
+          </script>
+
+          <!-- Fallback shown only if the calendar can't load (e.g. offline).
+               Hidden automatically once Waitwhile renders. -->
+          <!--
+               
+          <div class="book-widget__placeholder" id="ww-placeholder">
+            <div>
+              <div class="icon">✂</div>
+              <h3>Loading the booking calendar…</h3>
+              <p>If this doesn't load, you can also book straight from
+                 <a href="https://waitwhile.com/locations/paradisebarbershop8298/services?registration=booking" target="_blank" rel="noopener">this link</a>
+                 or by messaging <a href="https://instagram.com/wrthy" target="_blank" rel="noopener">@WRTHY</a> on Instagram.</p>
+            </div>
+          </div>
+                         -->
+
+        </div>
+
+        <!-- ===== INFO SIDEBAR ===== -->
+        <aside class="book-info">
+          <div class="info-card">
+            <h3>Find Us</h3>
+            <div class="info-row">
+              <span class="ico">📍</span>
+              <a href="https://maps.google.com/?q=12058+Central+Ave+NE,+Blaine,+MN+55434" target="_blank" rel="noopener">12058 Central Ave NE<br>Blaine, MN 55434</a>
+            </div>
+            <div class="info-row">
+              <span class="ico">📸</span>
+              <a href="https://instagram.com/wrthy" target="_blank" rel="noopener">@WRTHY</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Hours</h3>
+            <div class="hours-row"><span class="day">Monday</span><span class="time">7am – 2pm</span></div>
+            <div class="hours-row"><span class="day">Tuesday</span><span class="time">7am – 2pm</span></div>
+            <div class="hours-row"><span class="day">Wednesday</span><span class="time">7am – 2pm</span></div>
+            <div class="hours-row"><span class="day">Thursday</span><span class="time">7am – 2pm</span></div>
+            <div class="hours-row"><span class="day">Friday</span><span class="time">7am – 2pm</span></div>
+            <div class="hours-row closed"><span class="day">Saturday</span><span class="time">Closed</span></div>
+            <div class="hours-row closed"><span class="day">Sunday</span><span class="time">Closed</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">WRTHY CUTS</div>
+          <p>Precision cuts and clean fades in Blaine, Minnesota.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Visit</h4>
+            <a href="https://maps.google.com/?q=12058+Central+Ave+NE,+Blaine,+MN+55434" target="_blank" rel="noopener">12058 Central Ave NE<br>Blaine, MN 55434</a>
+          </div>
+          <div class="footer-col">
+            <h4>Hours</h4>
+            <p>Mon-Fri · 7am - 2pm</p>
+            <p>Sat-Sun · Closed</p>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="https://instagram.com/wrthy" target="_blank" rel="noopener">@WRTHY</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> WRTHY CUTS. All rights reserved.</span>
+        <span>Blaine, Minnesota</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
