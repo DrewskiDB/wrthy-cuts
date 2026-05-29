@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book a Cut — WRTHY CUTS</title>
+  <title>Book a Cut</title>
   <meta name="description" content="Book your appointment at WRTHY CUTS in Blaine, MN. Choose your service and time online." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,62 +35,38 @@
       </div>
 
       <div class="book-layout">
-        <!-- ===== WAITWHILE WIDGET ===== -->
+        <!-- ===== SQUARE WIDGET ===== -->
         <div class="book-widget">
           <!--
             ┌─────────────────────────────────────────────────────────────┐
-            │  WAITWHILE INLINE BOOKING — LIVE                              │
+            │  SQUARE APPOINTMENTS INLINE BOOKING — LIVE                    │
             ├─────────────────────────────────────────────────────────────┤
-            │  Location ID: paradisebarbershop8298                          │
-            │  (the public location slug from the booking URL — safe to     │
-            │  commit; it's the same link used in the Instagram bio).       │
+            │  Embeds Square's hosted booking page in an iframe. The URL   │
+            │  is the public Square Appointments page; color params keep   │
+            │  it on-brand (white text on black). Safe to commit — it's    │
+            │  the same public link used in social profiles.               │
             │                                                               │
-            │  Per Waitwhile's docs: load their script from the CDN (do NOT │
-            │  self-host it). The calendar renders into <div id="waitwhile">│
-            │  If the service list changes, update it in Waitwhile and it    │
-            │  flows through here automatically.                            │
+            │  If services or hours change: update them in Square FIRST     │
+            │  (so they're actually bookable), then mirror the services    │
+            │  list in index.html so the site and booking stay in sync.    │
             └─────────────────────────────────────────────────────────────┘
           -->
 
-          <!-- The calendar renders into this div -->
-          <div id="waitwhile"></div>
+          <iframe
+            src="https://book.squareup.com/appointments/p2s5yp40m4pj1m/location/970FZCXAVTRGA?buttonTextColor=ffffff&color=000000&locale=en&referrer=so"
+            title="Book an appointment at WRTHY CUTS"
+            loading="lazy"
+            style="width:100%; min-height:800px; border:0; display:block; border-radius:2px;">
+          </iframe>
 
-          <!-- Waitwhile embed script (official CDN) -->
-          <script src="https://cdn.jsdelivr.net/npm/@waitwhile/waitwhile-embed/dist/waitwhile-embed.min.js"></script>
-          <script>
-            // Live booking calendar. Location slug from the public booking URL.
-            (function () {
-              var LOCATION_ID = 'paradisebarbershop8298';
-
-              function mount() {
-                if (window.Waitwhile && window.Waitwhile.Embed) {
-                  var ww = Waitwhile.Embed({ locationId: LOCATION_ID });
-                  ww.render('#waitwhile');
-                  var ph = document.getElementById('ww-placeholder');
-                  if (ph) ph.style.display = 'none';
-                } else {
-                  // script not ready yet — try again shortly
-                  setTimeout(mount, 150);
-                }
-              }
-              mount();
-            })();
-          </script>
-
-          <!-- Fallback shown only if the calendar can't load (e.g. offline).
-               Hidden automatically once Waitwhile renders. -->
-          <!--
-               
-          <div class="book-widget__placeholder" id="ww-placeholder">
-            <div>
-              <div class="icon">✂</div>
-              <h3>Loading the booking calendar…</h3>
-              <p>If this doesn't load, you can also book straight from
-                 <a href="https://waitwhile.com/locations/paradisebarbershop8298/services?registration=booking" target="_blank" rel="noopener">this link</a>
-                 or by messaging <a href="https://instagram.com/wrthy" target="_blank" rel="noopener">@WRTHY</a> on Instagram.</p>
-            </div>
-          </div>
-                         -->
+          <!-- Fallback link in case the iframe is blocked. -->
+          <p style="margin-top:1rem; font-size:0.85rem; color:#666; text-align:center;">
+            Trouble loading?
+            <a href="https://book.squareup.com/appointments/p2s5yp40m4pj1m/location/970FZCXAVTRGA" target="_blank" rel="noopener" style="text-decoration:underline; color:#000;">Open the booking page directly</a>
+            or message
+            <a href="https://instagram.com/wrthy" target="_blank" rel="noopener" style="text-decoration:underline; color:#000;">@WRTHY</a>
+            on Instagram.
+          </p>
 
         </div>
 
@@ -110,11 +86,11 @@
 
           <div class="info-card">
             <h3>Hours</h3>
-            <div class="hours-row"><span class="day">Monday</span><span class="time">7am – 2pm</span></div>
-            <div class="hours-row"><span class="day">Tuesday</span><span class="time">7am – 2pm</span></div>
-            <div class="hours-row"><span class="day">Wednesday</span><span class="time">7am – 2pm</span></div>
-            <div class="hours-row"><span class="day">Thursday</span><span class="time">7am – 2pm</span></div>
-            <div class="hours-row"><span class="day">Friday</span><span class="time">7am – 2pm</span></div>
+            <div class="hours-row"><span class="day">Monday</span><span class="time">7am - 3pm</span></div>
+            <div class="hours-row"><span class="day">Tuesday</span><span class="time">7am - 3pm</span></div>
+            <div class="hours-row"><span class="day">Wednesday</span><span class="time">7am - 3pm</span></div>
+            <div class="hours-row"><span class="day">Thursday</span><span class="time">7am = 3pm</span></div>
+            <div class="hours-row"><span class="day">Friday</span><span class="time">7am - 3pm</span></div>
             <div class="hours-row closed"><span class="day">Saturday</span><span class="time">Closed</span></div>
             <div class="hours-row closed"><span class="day">Sunday</span><span class="time">Closed</span></div>
           </div>
