@@ -422,3 +422,180 @@ h1, h2, h3, h4 {
   .hero__cta { gap: 0.75rem; }
   .hero__cta .btn { padding: 0.85em 1.4em; font-size: 0.75rem; }
 }
+/* 14. ADA — SKIP LINK ------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.75em 1.5em;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* 14b. ADA — stronger focus ring for all interactive elements --------------- */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid #b8860b; /* gold, high contrast on black */
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* 15. BARBERS PAGE ---------------------------------------------------------- */
+.barbers-hero {
+  padding-top: clamp(7rem, 14vw, 11rem);
+  padding-bottom: var(--section-y);
+}
+
+.barbers-intro {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.barbers-intro h1 {
+  font-size: clamp(3rem, 10vw, 7rem);
+  margin-top: 0.75rem;
+}
+
+.barbers-intro p {
+  max-width: 50ch;
+  margin-top: 1.25rem;
+  color: var(--bone-dim);
+  font-size: 1.125rem;
+}
+
+.barbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  list-style: none;
+}
+
+.barber-card {
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.barber-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+}
+
+.barber-card__img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+}
+
+.barber-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.barber-card:hover .barber-card__img img {
+  transform: scale(1.05);
+}
+
+.barber-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, #222 0%, #0d0d0d 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.barber-placeholder__icon {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.barber-card__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.barber-card__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--bone);
+}
+
+.barber-card__spec {
+  font-size: 0.85rem;
+  color: var(--bone-dim);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.barber-card__btn {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Footer h3 (was h4 — heading hierarchy fix) -------------------------------- */
+.footer-col h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* Hours dl reset (book.html) ------------------------------------------------ */
+.hours-list {
+  margin: 0;
+  padding: 0;
+}
+.hours-list .hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 0.4rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.hours-list .hours-row:last-child { border-bottom: none; }
+.hours-list dt { color: var(--bone-dim); font-weight: 400; }
+.hours-list .closed dd { color: #666666; }
+
+@media (max-width: 560px) {
+  .barbers-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 380px) {
+  .barbers-grid { grid-template-columns: 1fr; }
+}
+/* Barber real name line */
+.barber-card__realname {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+  margin-top: -0.1rem;
+}
+.barber-card__tag {
+  color: var(--gold);
+  font-weight: 700;
+}
