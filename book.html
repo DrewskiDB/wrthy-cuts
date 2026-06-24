@@ -3,96 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book a Cut</title>
-  <meta name="description" content="Book your appointment at WRTHY CUTS in Blaine, MN. Choose your service and time online." />
+  <title>Book WRTHY</title>
+  <meta name="description" content="Book your appointment at WRTHY CUTS in Minneapolis, MN. Choose your service and time online." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-
+  <link rel="icon" type="image/png" href="assets/img/wrthycutsBL-gold-hero.PNG"/>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
+  <!-- Skip to main content (ADA) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <a href="index.html" class="brand">WRTHY CUTS</a>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="index.html#work" class="nav-link">Work</a>
-      <a href="book.html" class="btn" aria-current="page">Book a Cut <span class="arrow">→</span></a>
+  <header class="site-header" role="banner">
+    <a href="index.html" class="brand" aria-label="WRTHY CUTS — Home">WRTHY CUTS</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link" aria-current="page">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="barbers.html" class="btn" aria-label="Book your appointment at WRTHY CUTS">Book Now <span class="arrow" aria-hidden="true"></span></a>
     </nav>
   </header>
 
   <!-- ===== BOOKING ===== -->
-  <main class="book-hero">
+  <main class="book-hero" id="main-content">
     <div class="wrap">
       <div style="margin-bottom: clamp(2.5rem, 6vw, 4rem)">
         <span class="eyebrow">Appointments</span>
-        <h1>Book a Cut</h1>
+        <h1>Book WRTHY</h1>
         <p>Pick your service and a time that works. You'll get a confirmation and a reminder before your appointment.</p>
       </div>
 
       <div class="book-layout">
         <!-- ===== SQUARE WIDGET ===== -->
         <div class="book-widget">
-          <!--
-            ┌─────────────────────────────────────────────────────────────┐
-            │  SQUARE APPOINTMENTS INLINE BOOKING — LIVE                    │
-            ├─────────────────────────────────────────────────────────────┤
-            │  Embeds Square's hosted booking page in an iframe. The URL   │
-            │  is the public Square Appointments page; color params keep   │
-            │  it on-brand (white text on black). Safe to commit — it's    │
-            │  the same public link used in social profiles.               │
-            │                                                               │
-            │  If services or hours change: update them in Square FIRST     │
-            │  (so they're actually bookable), then mirror the services    │
-            │  list in index.html so the site and booking stay in sync.    │
-            └─────────────────────────────────────────────────────────────┘
-          -->
-
           <iframe
             src="https://book.squareup.com/appointments/p2s5yp40m4pj1m/location/970FZCXAVTRGA?buttonTextColor=ffffff&color=000000&locale=en&referrer=so"
-            title="Book an appointment at WRTHY CUTS"
+            title="Book an appointment at WRTHY CUTS — Square Appointments scheduling widget"
             loading="lazy"
             style="width:100%; min-height:600px; border:0; display:block; border-radius:2px;">
           </iframe>
 
-          <!-- Fallback link in case the iframe is blocked. -->
           <p style="margin-top:1rem; font-size:0.85rem; color:#666; text-align:center;">
             Trouble loading?
-            <a href="https://book.squareup.com/appointments/p2s5yp40m4pj1m/location/970FZCXAVTRGA" target="_blank" rel="noopener" style="text-decoration:underline; color:#000;">Open the booking page directly</a>
+            <a href="https://book.squareup.com/appointments/p2s5yp40m4pj1m/location/970FZCXAVTRGA" target="_blank" rel="noopener" style="text-decoration:underline; color:#000;" aria-label="Open WRTHY CUTS booking page directly on Square (opens in new tab)">Open the booking page directly</a>
             or message
-            <a href="https://instagram.com/wrthy" target="_blank" rel="noopener" style="text-decoration:underline; color:#000;">@WRTHY</a>
-            on Instagram.
+            <a href="https://instagram.com/wrthy" target="_blank" rel="noopener" style="text-decoration:underline; color:#000;" aria-label="Message WRTHY CUTS on Instagram (opens in new tab)">@WRTHY on Instagram</a>.
           </p>
-
         </div>
 
         <!-- ===== INFO SIDEBAR ===== -->
-        <aside class="book-info">
+        <aside class="book-info" aria-label="Shop information">
           <div class="info-card">
-            <h3>Find Us</h3>
+            <h2>Find Us</h2>
             <div class="info-row">
-              <span class="ico">📍</span>
-              <a href="https://maps.google.com/?q=12058+Central+Ave+NE,+Blaine,+MN+55434" target="_blank" rel="noopener">12058 Central Ave NE<br>Blaine, MN 55434</a>
+              <span class="ico" aria-hidden="true">📍</span>
+              <a href="https://maps.google.com/?q=12058+Central+Ave+NE,+Minneapolis,+MN+55434" target="_blank" rel="noopener" aria-label="Get directions to 12058 Central Ave NE, Minneapolis MN 55434 (opens in new tab)">12058 Central Ave NE<br>Minneapolis, MN 55434</a>
             </div>
             <div class="info-row">
-              <span class="ico">📸</span>
-              <a href="https://instagram.com/wrthy" target="_blank" rel="noopener">@WRTHY</a>
+              <span class="ico" aria-hidden="true">📸</span>
+              <a href="https://instagram.com/wrthy" target="_blank" rel="noopener" aria-label="Follow WRTHY CUTS on Instagram (opens in new tab)">@WRTHY on Instagram</a>
             </div>
           </div>
 
           <div class="info-card">
-            <h3>Hours</h3>
-            <div class="hours-row"><span class="day">Monday</span><span class="time">7am - 3pm</span></div>
-            <div class="hours-row"><span class="day">Tuesday</span><span class="time">7am - 3pm</span></div>
-            <div class="hours-row"><span class="day">Wednesday</span><span class="time">7am - 3pm</span></div>
-            <div class="hours-row"><span class="day">Thursday</span><span class="time">7am = 3pm</span></div>
-            <div class="hours-row"><span class="day">Friday</span><span class="time">7am - 3pm</span></div>
-            <div class="hours-row closed"><span class="day">Saturday</span><span class="time">Closed</span></div>
-            <div class="hours-row closed"><span class="day">Sunday</span><span class="time">Closed</span></div>
+            <h2>Hours</h2>
+            <dl class="hours-list">
+              <div class="hours-row"><dt class="day">Monday</dt><dd class="time">7am – 3pm</dd></div>
+              <div class="hours-row"><dt class="day">Tuesday</dt><dd class="time">7am – 3pm</dd></div>
+              <div class="hours-row"><dt class="day">Wednesday</dt><dd class="time">7am – 3pm</dd></div>
+              <div class="hours-row"><dt class="day">Thursday</dt><dd class="time">7am – 3pm</dd></div>
+              <div class="hours-row"><dt class="day">Friday</dt><dd class="time">7am – 3pm</dd></div>
+              <div class="hours-row closed"><dt class="day">Saturday</dt><dd class="time">Closed</dd></div>
+              <div class="hours-row closed"><dt class="day">Sunday</dt><dd class="time">Closed</dd></div>
+            </dl>
           </div>
         </aside>
       </div>
@@ -100,32 +86,32 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="brand">WRTHY CUTS</div>
-          <p>Precision cuts and clean fades in Blaine, Minnesota.</p>
+          <div class="brand" aria-label="WRTHY CUTS">WRTHY CUTS</div>
+          <p>Precision cuts and clean fades in Minneapolis, Minnesota.</p>
         </div>
         <div class="footer-cols">
           <div class="footer-col">
-            <h4>Visit</h4>
-            <a href="https://maps.google.com/?q=12058+Central+Ave+NE,+Blaine,+MN+55434" target="_blank" rel="noopener">12058 Central Ave NE<br>Blaine, MN 55434</a>
+            <h3>Visit</h3>
+            <a href="https://maps.google.com/?q=12058+Central+Ave+NE,+Minneapolis,+MN+55434" target="_blank" rel="noopener" aria-label="Get directions to WRTHY CUTS at 12058 Central Ave NE, Minneapolis MN 55434 (opens in new tab)">12058 Central Ave NE<br>Minneapolis, MN 55434</a>
           </div>
           <div class="footer-col">
-            <h4>Hours</h4>
+            <h3>Hours</h3>
             <p>Mon-Fri · 7am - 3pm</p>
             <p>Sat-Sun · Closed</p>
           </div>
           <div class="footer-col">
-            <h4>Connect</h4>
-            <a href="https://instagram.com/wrthy" target="_blank" rel="noopener">@WRTHY</a>
+            <h3>Connect</h3>
+            <a href="https://www.instagram.com/wrthycutsbarberlounge?igsh=eWhlbjV5OThkbnh2" target="_blank" rel="noopener" aria-label="Follow WRTHY CUTS on Instagram (opens in new tab)">@wrthycutsbarberlounge on Instagram</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> WRTHY CUTS. All rights reserved.</span>
-        <span>Blaine, Minnesota</span>
+        <span>Minneapolis, Minnesota</span>
       </div>
     </div>
   </footer>
