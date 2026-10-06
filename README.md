@@ -1,74 +1,69 @@
 # WRTHY CUTS
 
-Static website for WRTHY CUTS — a barbershop in Blaine, MN. Two pages
-(Home + Book), with an inline [Waitwhile](https://waitwhile.com) booking
-calendar. No backend, no build step — just open the files or host them anywhere.
+Website for **WRTHY Cuts Barber Lounge**, a barbershop at 12058 Central Ave NE,
+Minneapolis, MN.
+
+**Live site:** https://www.houseofwrthy.com
+
+Built with plain HTML, CSS, and JavaScript — no framework, no build step, no
+backend. Hosted on GitHub Pages with a custom domain.
+
+## Pages
+
+| Page | What it does |
+|------|--------------|
+| `index.html` — Home | Brand story, address (Google Maps link), tap-to-call phone, hours, Instagram |
+| `barbers.html` — Barbers | Card for each barber; each "Book Now" goes to that barber's own booking page (Booksy) |
+| `book.html` — Book | Owner's booking calendar via an embedded Square Appointments widget, with a fallback link if it fails to load |
+
+The "Book Now" buttons in the header send visitors to the Barbers page so they
+can pick who they want first.
 
 ## Structure
 
 ```
 wrthy-cuts/
-├── index.html        # Home: hero, about, services, gallery
-├── book.html         # Booking page (Waitwhile inline embed)
-├── css/style.css     # All styling + design tokens
-├── js/main.js        # Header scroll state + scroll reveals
-└── assets/img/        # Photos go here (see below)
+├── index.html         # Home
+├── barbers.html       # Barber picker → Booksy / book.html
+├── book.html          # Square Appointments embed
+├── css/style.css      # All styling + design tokens
+├── js/main.js         # Header scroll state, scroll reveals, footer year
+├── assets/img/        # Photos (hero, barbers, gallery)
+└── CNAME              # Custom domain for GitHub Pages
 ```
+
+## Features
+
+- Responsive layout for phones, tablets, and desktop
+- Accessibility: skip-to-content link, ARIA labels, alt text, external links
+  labeled as opening in a new tab
+- Vanilla JS with no dependencies; scroll animations fall back gracefully when
+  `IntersectionObserver` isn't available
 
 ## Run it locally
 
-It's plain HTML — just open `index.html` in a browser. Or serve it:
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
-# Python 3
 python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Things to fill in  →  search the code for `REPLACE`
+## Updating content
 
-Everything that still needs real info is marked with a `REPLACE` comment.
-Here's what's left:
+- **Hours** appear in the footer of every page and in the hours table on
+  `book.html` — change all of them together.
+- **Barbers:** add or remove a card in `barbers.html`. Each card links to that
+  barber's Booksy page.
+- **Services and prices** live in Square (owner) and Booksy (other barbers), not
+  in this repo, so update them there.
 
-| What | Where | Notes |
-|------|-------|-------|
-| **About / story** | `index.html` — `.about__copy` | Placeholder copy; swap for his real background |
-| **Stats** (years, cut count) | `index.html` — `.about__stats` | Placeholder numbers |
-| **Hero photo** | `assets/img/hero.jpg` | Then remove `is-placeholder`, uncomment the `<img>` |
-| **Portrait photo** | `assets/img/barber.jpg` | Same — remove `is-placeholder`, uncomment `<img>` |
-| **Gallery photos** | `assets/img/cut-1.jpg` … `cut-6.jpg` | Same for each tile |
-| **Phone** (optional) | not currently on the site | Booking is handled by Waitwhile, so a phone is optional. Add later if wanted. |
+## Deployment
 
-### Already filled in (real)
-- Shop name — WRTHY CUTS *(Waitwhile account is "Paradise Barbershop +" — confirm which name he wants long-term)*
-- Address — 12058 Central Ave NE, Blaine, MN 55434 (links to Google Maps)
-- Hours — Mon–Fri 7am–2pm, closed weekends
-- Instagram — @WRTHY
-- Services — Haircut $50, Haircut + Beard $60 *(from the live Waitwhile menu)*
-- **Booking calendar** — live, wired to Waitwhile location `paradisebarbershop8298`
+Pushing to `master` deploys automatically through GitHub Pages. The `CNAME`
+file points the site at `www.houseofwrthy.com`.
 
-### Keeping the menu in sync
-The services shown on the home page are typed in by hand, but **booking** runs
-through Waitwhile. If your brother adds or re-prices a service, do it in
-Waitwhile first (so it's actually bookable), then mirror the change in the
-`.services__list` in `index.html`.
+## Note on embed IDs
 
-## Adding photos
-
-Drop image files into `assets/img/` using the filenames above. Then in the HTML,
-find the matching element, remove the `is-placeholder` class, and uncomment the
-`<img>` line right below it. Recommended: landscape ~1600px wide for the hero,
-square ~1000×1000px for gallery tiles. Compress them (e.g. squoosh.app) so the
-page stays fast.
-
-## Hosting (free options)
-
-- **GitHub Pages** — push this repo, enable Pages in Settings → Pages.
-- **Netlify / Cloudflare Pages** — drag the folder in, done.
-
-## Note on the Waitwhile Location ID
-
-The Location ID lives in client-side code (it runs in every visitor's browser
-via the embed script), so it isn't a secret in the way a password or API key
-would be. It's fine to commit. Do **not** commit any private Waitwhile API keys
-or admin credentials — those never belong in the embed and never in the repo.
+The Square booking URL and Booksy links are public, client-side links, so
+they're safe to commit. Never commit private API keys or admin credentials.
