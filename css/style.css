@@ -541,6 +541,7 @@ button:focus-visible,
   letter-spacing: 0.04em;
   line-height: 1;
   color: var(--bone);
+  overflow-wrap: anywhere; /* safety net: wrap a too-long name instead of clipping it */
 }
 
 .barber-card__spec {
@@ -582,9 +583,16 @@ button:focus-visible,
 
 @media (max-width: 560px) {
   .barbers-grid { grid-template-columns: 1fr 1fr; }
+  /* Two narrow columns on phones: tighter padding + name scales with screen
+     width so one-word names like BLENDZBYROZAY fit on a single line. */
+  .barber-card__body { padding: 1rem; }
+  .barber-card__name { font-size: clamp(1rem, 4.4vw, 1.5rem); }
 }
 @media (max-width: 380px) {
   .barbers-grid { grid-template-columns: 1fr; }
+  /* Single full-width column has room again — restore normal sizing. */
+  .barber-card__body { padding: 1.5rem; }
+  .barber-card__name { font-size: 1.5rem; }
 }
 /* Barber real name line */
 .barber-card__realname {
